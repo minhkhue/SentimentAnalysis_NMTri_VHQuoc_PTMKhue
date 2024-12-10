@@ -42,13 +42,13 @@ def convert_df_to_csv(df):
 proj1_sentiment_lgr_model, proj1_tfidf_vectorizer = load_model_and_tfidf()
 
 # Giao diện phần 'Tải dữ liệu lên hệ thống'
-st.sidebar.write('# :briefcase: Đồ án tốt nghiệp K299')
-st.sidebar.write('### :scroll: Project 1: Sentiment Analysis')
-st.sidebar.title('Menu:')
-info_options = st.sidebar.radio(
-    ':gear: Các chức năng:', 
-    options=['Tổng quan về hệ thống', 'Tải dữ liệu lên hệ thống', 'Tổng quan về dataset', 'Thông tin về sản phẩm', 'Dự báo thái độ cho dataset', 'Dự báo thái độ cho comment']
-)
+# st.sidebar.write('# :briefcase: Đồ án tốt nghiệp K299')
+# st.sidebar.write('### :scroll: Project 1: Sentiment Analysis')
+# st.sidebar.title('Menu:')
+# info_options = st.sidebar.radio(
+#     ':gear: Các chức năng:', 
+#     options=['Tổng quan về hệ thống', 'Tải dữ liệu lên hệ thống', 'Tổng quan về dataset', 'Thông tin về sản phẩm', 'Dự báo thái độ cho dataset', 'Dự báo thái độ cho comment']
+# )
 # st.sidebar.write('-'*3)
 # st.sidebar.write('### :left_speech_bubble: Giảng viên hướng dẫn:')
 # st.sidebar.write('### :female-teacher: Thạc Sỹ Khuất Thùy Phương')
