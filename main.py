@@ -234,7 +234,7 @@ if selected == 'Tổng quan về dataset':
                 ax.grid(axis='y', linestyle='--', alpha=0.7)
                 st.pyplot(fig)
             
-        with tab2:
+        #with tab2:
 
             
 
