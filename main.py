@@ -196,7 +196,7 @@ if selected == 'Tổng quan về dataset':
                 product_sales = data.groupby(['year', 'ten_san_pham']).size().reset_index(name='count')
                 
                 # Lọc top 10 sản phẩm
-                year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique()))
+                year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique(), reverse=True))
                 print(year_selected)
                 filtered_data = product_sales[product_sales['year'] == year_selected].nlargest(10, 'count')
                 
@@ -219,7 +219,7 @@ if selected == 'Tổng quan về dataset':
                 product_sales = data.groupby(['year', 'quarter', 'ten_san_pham']).size().reset_index(name='count')
                 
                 # Lựa chọn năm và quý
-                year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique()))
+                year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique(), reverse=True))
                 print(year_selected)
                 quarter_selected = st.selectbox('Chọn quý:', sorted(data['quarter'].unique()))
                 
