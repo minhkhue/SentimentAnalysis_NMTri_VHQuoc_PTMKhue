@@ -219,6 +219,7 @@ if selected == 'Tổng quan về dataset':
                 
                 # Lựa chọn năm và quý
                 year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique(),ascending=False))
+                print(year_selected)
                 quarter_selected = st.selectbox('Chọn quý:', sorted(data['quarter'].unique()))
                 
                 filtered_data = product_sales[(product_sales['year'] == year_selected) & 
