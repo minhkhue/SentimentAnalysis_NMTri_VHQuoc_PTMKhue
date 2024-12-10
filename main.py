@@ -108,13 +108,14 @@ if selected == 'Tổng quan về hệ thống':
                     }
                     """,
             ):
-                st.markdown('- HASAKI.VN là hệ thống cửa hàng mỹ phẩm chính hãng và dịch vụ chăm sóc sắc đẹp chuyên sâu với hệ thống cửa hàng trải dài trên toàn quốc; và hiện đang là đối tác phân phối chiến lược tại thị trường Việt Nam của hàng loạt thương hiệu lớn...”')
-                st.markdown('- Khách hàng có thể vào website hasaki.vn để tìm kiếm, lựa chọn sản phẩm, xem các đánh giá/nhận xét và đặt mua sản phẩm.')
-                st.markdown('- Từ những đánh giá của khách hàng, vấn đề được đưa ra là làm sao để các nhãn hàng hiểu khách hàng rõ hơn, biết họ đánh giá gì về sản phẩm, từ đó có thể cải thiện chất lượng sản phẩm cũng như các dịch vụ đi kèm.')
+                st.write('- HASAKI.VN là hệ thống cửa hàng mỹ phẩm chính hãng và dịch vụ chăm sóc sắc đẹp chuyên sâu với hệ thống cửa hàng trải dài trên toàn quốc; và hiện đang là đối tác phân phối chiến lược tại thị trường Việt Nam của hàng loạt thương hiệu lớn...”')
+                st.write('- Khách hàng có thể vào website hasaki.vn để tìm kiếm, lựa chọn sản phẩm, xem các đánh giá/nhận xét và đặt mua sản phẩm.')
+                st.write('- Từ những đánh giá của khách hàng, vấn đề được đưa ra là làm sao để các nhãn hàng hiểu khách hàng rõ hơn, biết họ đánh giá gì về sản phẩm, từ đó có thể cải thiện chất lượng sản phẩm cũng như các dịch vụ đi kèm.')
     with general_info_tabs[1]:
         st.header('Giải pháp đề xuất')
-        st.write('- Sentiment Analysis là quá trình phân tích, đánh giá quan điểm của một người về một đối tượng nào đó (quan điểm mang tính tích cực, tiêu cực, hay trung tính,..). Quá trình này có thể thực hiện bằng việc sử dụng các tập luật (rule based), sử dụng Machine Learning hoặc phương pháp Hybrid (kết hợp hai phương pháp trên)')
-        st.write('''Lợi ích của phân tích thái độ, quan điểm:
+        with st.container(border=True):
+            st.write('- Sentiment Analysis là quá trình phân tích, đánh giá quan điểm của một người về một đối tượng nào đó (quan điểm mang tính tích cực, tiêu cực, hay trung tính,..). Quá trình này có thể thực hiện bằng việc sử dụng các tập luật (rule based), sử dụng Machine Learning hoặc phương pháp Hybrid (kết hợp hai phương pháp trên)')
+            st.write('''Lợi ích của phân tích thái độ, quan điểm:
 - Xác định và trích xuất các thông tin hữu ích từ khách hàng về mức độ quan tâm, hài lòng của KH đối với sản phẩm, dịch vụ của doanh nghiệp từ đó doanh nghiệp có thể điều chỉnh chiến lược Kinh doanh, Marketing, và các dịch vụ phù hợp với khách hàng hơn.
 - Phân tích đối thủ cạnh tranh, để hiểu cách khách hàng cảm nhận về các sản phẩm hoặc dịch vụ của đối thủ.''')
         st.image('img/Gioi_thieu_proj1.PNG', use_column_width=True)
