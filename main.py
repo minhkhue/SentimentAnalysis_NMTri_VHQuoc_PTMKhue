@@ -60,14 +60,17 @@ proj1_sentiment_lgr_model, proj1_tfidf_vectorizer = load_model_and_tfidf()
 # st.sidebar.write('-'*3)
 # st.sidebar.write('#### :clock830: Thời gian báo cáo:')
 # st.sidebar.write(':spiral_calendar_pad: 14/12/2024')
-
+st.sidebar.write('-'*3)
+st.sidebar.write('### ĐỒ ÁN TỐT NGHIỆP K2999 ')
+st.sidebar.write('#### :bar_chart: Project1: Sentiment Analysis')
+st.sidebar.write('-'*3)
 with st.sidebar:
     selected = option_menu("MENU", ['Tổng quan về hệ thống', 'Tải dữ liệu lên hệ thống','Tổng quan về dataset','Thông tin về sản phẩm','Dự báo thái độ cho dataset','Dự báo thái độ cho comment'], 
         icons=['globe', 'cloud-upload-fill','info-circle','p-circle','people','body-text'], menu_icon="menu-button-wide", default_index=0)
     # selected
-st.sidebar.write('-'*3)
-st.sidebar.write('### ĐỒ ÁN TỐT NGHIỆP K2999 ')
-st.sidebar.write('#### :bar_chart: Project1: Sentiment Analysis')
+# st.sidebar.write('-'*3)
+# st.sidebar.write('### ĐỒ ÁN TỐT NGHIỆP K2999 ')
+# st.sidebar.write('#### :bar_chart: Project1: Sentiment Analysis')
 st.sidebar.write('-'*3)
 st.sidebar.write('### GIẢNG VIÊN HƯỚNG DẪN')
 st.sidebar.write('#### :female-teacher: ThS. Khuất Thùy Phương')
