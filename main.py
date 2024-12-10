@@ -218,7 +218,7 @@ if selected == 'Tổng quan về dataset':
                 product_sales = data.groupby(['year', 'quarter', 'ten_san_pham']).size().reset_index(name='count')
                 
                 # Lựa chọn năm và quý
-                year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique()))
+                year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique(),ascending=False))
                 quarter_selected = st.selectbox('Chọn quý:', sorted(data['quarter'].unique()))
                 
                 filtered_data = product_sales[(product_sales['year'] == year_selected) & 
