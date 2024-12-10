@@ -15,6 +15,7 @@ from collections import Counter
 from wordcloud import WordCloud as wc
 label_encoder = LabelEncoder()
 from streamlit_option_menu import option_menu
+from streamlit_extras.stylable_container import stylable_container 
 # Load các emoji biểu cảm thường gặp
 emoji_dict = tpr.load_emojicon(file_path='files/emojicon.txt')
 teen_dict = tpr.load_teencode(file_path='files/teencode.txt')
