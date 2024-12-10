@@ -146,6 +146,12 @@ if selected == 'Tổng quan về dataset':
 
         tab1, tab2 = st.tabs(["Thống kê sản phẩm", "Các thống kê khác"])
         with tab1:
+            # Sử dụng groupby theo 'year' và đếm số sản phẩm theo 'year' bằng size()
+            # Tạo cột 'year' từ cột 'ngay_binh_luan'
+            data['year'] = data['ngay_binh_luan'].dt.year
+            product_count_yearly = data.groupby('year').size().reset_index()
+            product_count_yearly.rename(columns={0: 'ban_sp_theo_nam'}, inplace=True)
+    
             # Vẽ biểu đồ lineplot thống kê số lượng sản phẩm bán ra theo năm
             st.write('### Thống kê số lượng sản phẩm bán ra theo năm')
             fig, ax = plt.subplots(figsize=(12, 6))
@@ -230,77 +236,7 @@ if selected == 'Tổng quan về dataset':
             
         with tab2:
 
-            # Tạo đồ thị đếm số sao
-            st.write("### Phân bổ số sao đánh giá")
-            fig, ax = plt.subplots(figsize=(10, 6))  # Khởi tạo figure và axis cho Seaborn
-            sns.countplot(data=data, x='so_sao', hue='so_sao', palette='tab10', ax=ax)  # Tạo biểu đồ trên ax
-            # Thêm số count trên cột
-            for container in ax.containers: # type: ignore
-                ax.bar_label(container)
-            # Tùy chỉnh đồ thị
-            ax.set_xticklabels(ax.get_xticklabels(), rotation=90)  # Xoay nhãn trục X
-            ax.set_title('Số sao phân bổ')  # Tiêu đề
-            plt.tight_layout()  # Đảm bảo bố cục không bị cắt
-            # Hiển thị đồ thị trên Streamlit
-            st.pyplot(fig)
             
-            # Số lượng các từ tích cực
-            st.write("### Số lượng các từ tích cực đã nhận xét")
-            # Tạo đồ thị
-            fig, ax = plt.subplots(figsize=(10, 6))  # Khởi tạo figure và axis
-            sns.countplot(data=data, x='positive_words_count', hue='positive_words_count', legend=False, palette='tab10', ax=ax)  # type: ignore # Tạo biểu đồ
-            # Thêm nhãn trên các cột
-            for container in ax.containers: # type: ignore
-                ax.bar_label(container)
-            # Tùy chỉnh đồ thị
-            ax.set_xticklabels(ax.get_xticklabels(), rotation=90)  # Xoay nhãn trục X
-            ax.set_title('Số lượng các từ tích cực đã nhận xét')  # Thêm tiêu đề
-            plt.tight_layout()  # Đảm bảo bố cục gọn gàng
-            # Hiển thị đồ thị trên Streamlit
-            st.pyplot(fig)
-    
-            # Số lượng các từ tiêu cực
-            st.write('### Số lượng các từ tiêu cực đã nhận xét')
-            # Tạo đồ thị
-            fig, ax = plt.subplots(figsize=(10, 6))  # Khởi tạo figure và axis
-            sns.countplot(data=data, x='negative_words_count', hue='negative_words_count', legend=False, palette='tab10', ax=ax)  # type: ignore # Tạo biểu đồ
-            # Thêm nhãn trên các cột
-            for container in ax.containers: # type: ignore
-                ax.bar_label(container)
-            # Tùy chỉnh đồ thị
-            ax.set_xticklabels(ax.get_xticklabels(), rotation=90)  # Xoay nhãn trục X
-            ax.set_title('Số lượng các từ tiêu cực đã nhận xét')  # Thêm tiêu đề
-            plt.tight_layout()  # Đảm bảo bố cục gọn gàng
-            # Hiển thị đồ thị trên Streamlit
-            st.pyplot(fig)
-    
-            # Tần suất Positive/Negative
-            st.write('### Tần suất Positive/Negative trên tập dữ liệu')
-            # Tạo figure và axis
-            fig, ax = plt.subplots(figsize=(8, 5))
-            # Tạo biểu đồ countplot
-            sns.countplot(
-                data=data, 
-                x='sentiment', 
-                palette='tab10', 
-                ax=ax
-            )
-            # Thêm nhãn giá trị lên các cột
-            for container in ax.containers: # type: ignore
-                ax.bar_label(container)
-            # Thiết lập tiêu đề và xoay nhãn trục X
-            ax.set_title('Tần suất Positive/Negative trên tập dữ liệu', fontsize=14)
-            ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
-            # Tự động căn chỉnh layout
-            plt.tight_layout()
-            # Hiển thị biểu đồ
-            st.pyplot(fig)
-    
-            # Sử dụng groupby theo 'year' và đếm số sản phẩm theo 'year' bằng size()
-            # Tạo cột 'year' từ cột 'ngay_binh_luan'
-            data['year'] = data['ngay_binh_luan'].dt.year
-            product_count_yearly = data.groupby('year').size().reset_index()
-            product_count_yearly.rename(columns={0: 'ban_sp_theo_nam'}, inplace=True)
 
         
 
