@@ -463,9 +463,10 @@ if selected == 'Thông tin về sản phẩm':
 
                     # Hiển thị các bình luận đã được lọc
                     for i in range(len(filtered_reviews)):
-                        st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[i]}, {filtered_reviews["ho_ten"].values[i]}, {filtered_reviews["so_sao"].values[i] * ":star:"}')
-                        st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[i]}')
-                        st.write('-' * 3)
+                        with st.container(border=True):
+                            st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[i]}, {filtered_reviews["ho_ten"].values[i]}, {filtered_reviews["so_sao"].values[i] * ":star:"}')
+                            st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[i]}')
+                            st.write('-' * 3)
                 with info_tabs[2]:
                     filtered_product = selected_product.groupby('ma_san_pham')['processed_noi_dung_binh_luan'].apply(' '.join).reset_index()
                     filtered_product.rename(columns={"processed_noi_dung_binh_luan": "merged_comments"}, inplace=True)
