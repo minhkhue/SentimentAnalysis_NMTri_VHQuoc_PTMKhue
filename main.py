@@ -144,7 +144,7 @@ if selected == 'Tổng quan về dataset':
     else:
         data = st.session_state['uploaded_data']  # Lấy dữ liệu từ session_state
 
-        tab1, tab2 = st.tabs(["Thống kê sản phẩm", "Các thống kê khác")
+        tab1, tab2 = st.tabs(["Thống kê sản phẩm", "Các thống kê khác"])
         with tab1:
             # Vẽ biểu đồ lineplot thống kê số lượng sản phẩm bán ra theo năm
             st.write('### Thống kê số lượng sản phẩm bán ra theo năm')
