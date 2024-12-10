@@ -14,7 +14,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from collections import Counter
 from wordcloud import WordCloud as wc
 label_encoder = LabelEncoder()
-
+from streamlit_option_menu import option_menu
 # Load các emoji biểu cảm thường gặp
 emoji_dict = tpr.load_emojicon(file_path='files/emojicon.txt')
 teen_dict = tpr.load_teencode(file_path='files/teencode.txt')
@@ -49,24 +49,43 @@ info_options = st.sidebar.radio(
     ':gear: Các chức năng:', 
     options=['Tổng quan về hệ thống', 'Tải dữ liệu lên hệ thống', 'Tổng quan về dataset', 'Thông tin về sản phẩm', 'Dự báo thái độ cho dataset', 'Dự báo thái độ cho comment']
 )
+# st.sidebar.write('-'*3)
+# st.sidebar.write('### :left_speech_bubble: Giảng viên hướng dẫn:')
+# st.sidebar.write('### :female-teacher: Thạc Sỹ Khuất Thùy Phương')
+# st.sidebar.write('-'*3)
+# st.sidebar.write('#### Nhóm cùng thực hiện:')
+# st.sidebar.write(' :boy: Nguyễn Minh Trí')
+# st.sidebar.write(' :boy: Võ Huy Quốc')
+# st.sidebar.write(' :boy: Phan Trần Minh Khuê')
+# st.sidebar.write('-'*3)
+# st.sidebar.write('#### :clock830: Thời gian báo cáo:')
+# st.sidebar.write(':spiral_calendar_pad: 14/12/2024')
+
+with st.sidebar:
+    selected = option_menu("MENU", ['Tổng quan về hệ thống', 'Tải dữ liệu lên hệ thống','Tổng quan về dataset','Thông tin về sản phẩm','Dự báo thái độ cho dataset','Dự báo thái độ cho comment'], 
+        icons=['globe', 'cloud-upload-fill','info-circle','p-circle','people','body-text'], menu_icon="menu-button-wide", default_index=0)
+    # selected
 st.sidebar.write('-'*3)
-st.sidebar.write('### :left_speech_bubble: Giảng viên hướng dẫn:')
-st.sidebar.write('### :female-teacher: Thạc Sỹ Khuất Thùy Phương')
+st.sidebar.write('### ĐỒ ÁN TỐT NGHIỆP K2999 ')
+st.sidebar.write('#### :bar_chart: Project1: Sentiment Analysis')
 st.sidebar.write('-'*3)
-st.sidebar.write('#### Nhóm cùng thực hiện:')
-st.sidebar.write(' :boy: Nguyễn Minh Trí')
-st.sidebar.write(' :boy: Võ Huy Quốc')
-st.sidebar.write(' :boy: Phan Trần Minh Khuê')
+st.sidebar.write('### GIẢNG VIÊN HƯỚNG DẪN')
+st.sidebar.write('#### :female-teacher: ThS. Khuất Thùy Phương')
 st.sidebar.write('-'*3)
-st.sidebar.write('#### :clock830: Thời gian báo cáo:')
-st.sidebar.write(':spiral_calendar_pad: 14/12/2024')
+st.sidebar.write('### THÀNH VIÊN THỰC HIỆN')
+st.sidebar.write('#### :boy: Nguyễn Minh Trí')
+st.sidebar.write('#### :boy: Võ Huy Quốc')
+st.sidebar.write('#### :boy: Phan Trần Minh Khuê')
+st.sidebar.write('-'*3)
+st.sidebar.write('### THỜI GIAN THỰC HIỆN')
+st.sidebar.write('#### :spiral_calendar_pad: 14/12/2024')
 
 ## Kiểm tra dữ liệu đã upload trước đó
 if 'uploaded_data' not in st.session_state:
     st.session_state['uploaded_data'] = None  # Khởi tạo nếu chưa có dữ liệu
     
 ## Các bước thực hiện
-if info_options == 'Tổng quan về hệ thống':
+if selected == 'Tổng quan về hệ thống':
     st.image('img/hasaki_logo.png', use_column_width=True)
     general_info_tabs = st.tabs(['Business Objective', 'Triển khai hệ thống'])
     with general_info_tabs[0]:
@@ -86,7 +105,7 @@ if info_options == 'Tổng quan về hệ thống':
         st.image('img/Gioi_thieu_proj1.PNG', use_column_width=True)
 
 ## Xem dữ liệu đã upload lên, đưa dữ liệu vào session để sử dụng lại được
-if info_options == 'Tải dữ liệu lên hệ thống':
+if selected == 'Tải dữ liệu lên hệ thống':
     st.image('img/hasaki_logo.png', use_column_width=True)
     st.header('Tải dữ liệu đầu vào')
 
@@ -111,7 +130,7 @@ if info_options == 'Tải dữ liệu lên hệ thống':
         st.dataframe(data[['ma_khach_hang', 'ho_ten', 'ma_san_pham', 'ten_san_pham', 'mo_ta', 'diem_trung_binh', 'so_sao', 'noi_dung_binh_luan', 'ngay_binh_luan', 'gia_ban']].head(5))
         st.dataframe(data[['ma_khach_hang', 'ho_ten', 'ma_san_pham', 'ten_san_pham', 'mo_ta', 'diem_trung_binh', 'so_sao', 'noi_dung_binh_luan', 'ngay_binh_luan', 'gia_ban']].tail(5))
 # Giao diện phần 'Tổng quan về dataset'
-if info_options == 'Tổng quan về dataset':
+if selected == 'Tổng quan về dataset':
     st.image('img/hasaki_logo.png', use_column_width=True)
     if st.session_state['uploaded_data'] is None:
         st.warning('Dataset chưa được tải lên')
@@ -300,7 +319,7 @@ if info_options == 'Tổng quan về dataset':
         # st.pyplot(fig)
 
 # Giao diện phần 'Thông tin về sản phẩm'
-if info_options == 'Thông tin về sản phẩm':
+if selected == 'Thông tin về sản phẩm':
     st.image('img/hasaki_logo.png', use_column_width=True)
     if st.session_state['uploaded_data'] is None:
         st.warning('Dataset chưa được tải lên')
@@ -499,7 +518,7 @@ if info_options == 'Thông tin về sản phẩm':
         else:
             st.write(f"Không tìm thấy sản phẩm với ID: {st.session_state.selected_ma_san_pham}")
         
-if info_options == 'Dự báo thái độ cho dataset':
+if selected == 'Dự báo thái độ cho dataset':
     st.image('img/hasaki_logo.png', use_column_width=True)
     if st.session_state['uploaded_data'] is None:
         st.warning('Dataset chưa được tải lên')
@@ -590,7 +609,7 @@ if info_options == 'Dự báo thái độ cho dataset':
             else:
                 st.warning('Vui lòng thực hiện dự đoán trước trong tab "Dự đoán".')
 
-if info_options == 'Dự báo thái độ cho comment':
+if selected == 'Dự báo thái độ cho comment':
     st.image('img/hasaki_logo.png', use_column_width=True)
     # if st.session_state['uploaded_data'] is None:
     #     st.warning('Dataset chưa được tải lên')
