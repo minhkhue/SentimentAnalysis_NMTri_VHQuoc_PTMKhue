@@ -131,10 +131,10 @@ if selected == 'Tải dữ liệu lên hệ thống':
     else:
         st.info('Dữ liệu đã được tải lên trước đó.')
         data = st.session_state['uploaded_data']  # Lấy dữ liệu từ session_state
-        st.sidebar.write('## 5 nội dung thông tin đầu tiên')
+        st.write('## 5 nội dung thông tin đầu tiên')
         st.dataframe(data[['ma_khach_hang', 'ho_ten', 'ma_san_pham', 'ten_san_pham', 'mo_ta', 'diem_trung_binh', 'so_sao', 'noi_dung_binh_luan', 'ngay_binh_luan', 'gia_ban']].head(5))
         st.write('-'*3)
-        st.sidebar.write('## 5 nội dung thông tin cuối cùng')
+        st.write('## 5 nội dung thông tin cuối cùng')
         st.dataframe(data[['ma_khach_hang', 'ho_ten', 'ma_san_pham', 'ten_san_pham', 'mo_ta', 'diem_trung_binh', 'so_sao', 'noi_dung_binh_luan', 'ngay_binh_luan', 'gia_ban']].tail(5))
 # Giao diện phần 'Tổng quan về dataset'
 if selected == 'Tổng quan về dataset':
