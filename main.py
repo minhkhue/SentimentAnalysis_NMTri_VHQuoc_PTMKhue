@@ -339,7 +339,7 @@ if selected == 'Thông tin về sản phẩm':
     if st.session_state['uploaded_data'] is None:
         st.warning('Dataset chưa được tải lên')
     else:
-        st.write('## Truy suất thông tin về một sản phẩm bất kỳ')
+        st.write('## Truy xuất thông tin về một sản phẩm bất kỳ')
         data = st.session_state['uploaded_data']  # Lấy dữ liệu từ session_state
         
         # Lấy sản phẩm
