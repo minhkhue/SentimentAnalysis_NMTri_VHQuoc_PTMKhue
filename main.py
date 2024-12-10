@@ -197,6 +197,7 @@ if selected == 'Tổng quan về dataset':
                 
                 # Lọc top 10 sản phẩm
                 year_selected = st.selectbox('Chọn năm:', sorted(data['year'].unique()))
+                print(year_selected)
                 filtered_data = product_sales[product_sales['year'] == year_selected].nlargest(10, 'count')
                 
                 # Vẽ biểu đồ
