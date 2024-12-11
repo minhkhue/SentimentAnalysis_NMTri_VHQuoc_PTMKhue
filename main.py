@@ -475,13 +475,11 @@ if selected == 'Thông tin về sản phẩm':
                             st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[index]}')
                             st.write('-' * 3)
                     slide_val = st.slider("Pick a number", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="collapsed")
-                    add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
-
                     for i in range(slide_val):
                         add_comment(i)
 
-                    
-                        
+                    add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
+
                 with info_tabs[2]:
                     filtered_product = selected_product.groupby('ma_san_pham')['processed_noi_dung_binh_luan'].apply(' '.join).reset_index()
                     filtered_product.rename(columns={"processed_noi_dung_binh_luan": "merged_comments"}, inplace=True)
