@@ -692,6 +692,7 @@ if selected == 'Dự báo thái độ cho comment':
     data = st.session_state['uploaded_data']  # Lấy dữ liệu từ session_state
     st.write('Nhập một comment để kiểm tra sentiment')
     user_input = st.text_area('Nhập comment:')
+    st.image('img/streamlit_comment_predict.png', use_column_width=True)
     if st.button('Dự đoán'):
         if user_input == '':
             st.warning('Mời bạn nhập nội dung bình luận!')
