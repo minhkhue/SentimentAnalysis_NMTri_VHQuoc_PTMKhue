@@ -459,6 +459,11 @@ if selected == 'Thông tin về sản phẩm':
                     #     st.write('-'*3)
                     # Lọc số sao đánh giá
                     # Tạo danh sách unique số sao từ dữ liệu
+                    if "selected_star" not in st.session_state:
+                        st.session_state["selected_star"] = None  # Ban đầu thu gọn
+                    if st.session_state.selected_star != selected_star:
+                        st.session_state.selected_star = selected_star
+                        reset_num_comment()
                     star_ratings = sorted(selected_product["so_sao"].unique())
                     # Tạo selectbox để chọn số sao
                     selected_star = st.selectbox("Chọn số sao để lọc bình luận:", options=["Tất cả"] + star_ratings)
