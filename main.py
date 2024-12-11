@@ -474,7 +474,7 @@ if selected == 'Thông tin về sản phẩm':
                             st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[index]}, {filtered_reviews["ho_ten"].values[index]}, {filtered_reviews["so_sao"].values[index] * ":star:"}')
                             st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[index]}')
                             st.write('-' * 3)
-                    slide_val = st.slider("Pick a number", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="collapsed")
+                    slide_val = st.slider("Số lượng bình luận", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="hidden")
                     for i in range(slide_val):
                         add_comment(i)
 
