@@ -690,7 +690,7 @@ if selected == 'Dự báo thái độ cho comment':
     # else:
     st.write('## Dự báo thái độ một bình luận')
     data = st.session_state['uploaded_data']  # Lấy dữ liệu từ session_state
-    st.write('Nhập một comment để kiểm tra sentiment')
+    # st.write('Nhập một comment để kiểm tra sentiment')
     user_input = st.text_area('Nhập comment:')
     st.image('img/streamlit_comment_predict.jpg', use_column_width=True)
     if st.button('Dự đoán'):
