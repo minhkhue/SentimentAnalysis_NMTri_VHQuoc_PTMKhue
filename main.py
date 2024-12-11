@@ -465,7 +465,8 @@ if selected == 'Thông tin về sản phẩm':
 
                     # Hiển thị các bình luận đã được lọc
                     filtered_reviews_count = len(filtered_reviews)
-                    num_comment = 5
+                    if 'num_comment' not in st.session_state:
+                        st.session_state['num_comment'] = 5
                     def add_5_comment():
                         if st.session_state.num_comment < filtered_reviews_count:
                             st.session_state.num_comment+=5
