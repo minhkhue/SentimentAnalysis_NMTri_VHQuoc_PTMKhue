@@ -373,13 +373,9 @@ if selected == 'Thông tin về sản phẩm':
         # st.write("Bạn đã chọn:", selected_product)
         if 'num_comment' not in st.session_state:
             st.session_state['num_comment'] = 5
-        def reset_num_comment():
-            st.session_state.num_comment=5
+        # def reset_num_comment():
+        #     st.session_state.num_comment=5
         # Cập nhật session_state dựa trên lựa chọn hiện tại
-        if st.session_state.selected_ma_san_pham != selected_product[1] :# type: ignore
-            st.session_state.selected_ma_san_pham=selected_product[1]
-            reset_num_comment()
-
         
         if st.session_state.selected_ma_san_pham:
             st.write(f'ma_san_pham: {st.session_state.selected_ma_san_pham}')
@@ -476,13 +472,20 @@ if selected == 'Thông tin về sản phẩm':
 
                     # Hiển thị các bình luận đã được lọc
                     filtered_reviews_count = len(filtered_reviews)
+                    if st.session_state.selected_ma_san_pham != selected_product[1] :# type: ignore
+                        st.session_state.selected_ma_san_pham=selected_product[1]
+                        if filtered_reviews_count < 5:
+                            st.session_state.num_comment = filtered_reviews_count
+                        else:
+                            st.session_state.num_comment=5
+            
                     if st.session_state.selected_star != selected_star:
                         st.session_state.selected_star = selected_star
                         if filtered_reviews_count < 5:
                             st.session_state.num_comment = filtered_reviews_count
                         else:
                             st.session_state.num_comment=5
-                        reset_num_comment()
+                        # reset_num_comment()
                     # st.session_state.num_comment = 5
                     def add_5_comment():
                         if st.session_state.num_comment < filtered_reviews_count:
