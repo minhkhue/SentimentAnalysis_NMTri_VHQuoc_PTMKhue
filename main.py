@@ -484,15 +484,9 @@ if selected == 'Thông tin về sản phẩm':
 
                     with elements("dashboard"):
 
-                        # You can create a draggable and resizable dashboard using
-                        # any element available in Streamlit Elements.
-                    
-                    
-                        # First, build a default layout for every element you want to include in your dashboard
-                    
                         layout = [
                             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-                            dashboard.Item("main_item", 2, 0, 2, 2, isDraggable=False, moved=False),
+                            dashboard.Item("main_item", 2, 0, 2, 2, isDraggable=False, moved=False,isResizable=False)
                         ]
                     
                         # Next, create a dashboard layout using the 'with' syntax. It takes the layout
