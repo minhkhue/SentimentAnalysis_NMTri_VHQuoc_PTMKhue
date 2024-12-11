@@ -466,13 +466,6 @@ if selected == 'Thông tin về sản phẩm':
                     # Hiển thị các bình luận đã được lọc
                     filtered_reviews_count = len(filtered_reviews)
                     num_comment = 5
-                    
-                    # slide_val = st.slider("Số lượng bình luận", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="hidden")
-                    for i in range(num_comment):
-                        add_comment(i)
-
-                    add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
-                    
                     def add_5_comment():
                         if num_comment < filtered_reviews_count:
                             num_comment+=5
@@ -484,6 +477,13 @@ if selected == 'Thông tin về sản phẩm':
                             st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[index]}, {filtered_reviews["ho_ten"].values[index]}, {filtered_reviews["so_sao"].values[index] * ":star:"}')
                             st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[index]}')
                             st.write('-' * 3)
+                    # slide_val = st.slider("Số lượng bình luận", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="hidden")
+                    for i in range(num_comment):
+                        add_comment(i)
+
+                    add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
+                    
+                    
                     # with elements("dashboard"):
 
                     #     layout = [
