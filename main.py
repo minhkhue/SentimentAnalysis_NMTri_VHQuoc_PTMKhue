@@ -462,6 +462,14 @@ if selected == 'Thông tin về sản phẩm':
                         filtered_reviews = selected_product
 
                     # Hiển thị các bình luận đã được lọc
+                    filtered_reviews_count = len(filtered_reviews)
+                    def add_5_comment():
+                        if st.session_state["slider_danhgia"] < filtered_reviews_count:
+                            st.session_state.slider+=5
+                        if st.session_state["slider_danhgia"] > filtered_reviews_count:
+                            st.session_state.slider=filtered_reviews_count
+                    add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
+                    slide_val = st.slider("Pick a number", 0, filtered_reviews_count,value = 5, key="slider_danhgia",label_visibility="hidden")
                     for i in range(len(filtered_reviews)):
                         with st.container(border=True):
                             st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[i]}, {filtered_reviews["ho_ten"].values[i]}, {filtered_reviews["so_sao"].values[i] * ":star:"}')
