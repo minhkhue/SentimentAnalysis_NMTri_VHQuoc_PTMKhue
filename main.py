@@ -492,18 +492,14 @@ if selected == 'Thông tin về sản phẩm':
                     
                         layout = [
                             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-                            dashboard.Item("first_item", 0, 0, 2, 2),
-                            dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=False, moved=False),
-                            dashboard.Item("third_item", 0, 2, 1, 1, isResizable=False),
+                            dashboard.Item("main_item", 2, 0, 2, 2, isDraggable=False, moved=False),
                         ]
                     
                         # Next, create a dashboard layout using the 'with' syntax. It takes the layout
                         # as first parameter, plus additional properties you can find in the GitHub links below.
                     
                         with dashboard.Grid(layout):
-                            mui.Paper("First item", key="first_item")
-                            mui.Paper("Second item (cannot drag)", key="second_item")
-                            mui.Paper("Third item (cannot resize)", key="third_item")
+                            mui.Paper("", key="main_item")
                     
                         # If you want to retrieve updated layout values as the user move or resize dashboard items,
                         # you can pass a callback to the onLayoutChange event parameter.
@@ -514,9 +510,7 @@ if selected == 'Thông tin về sản phẩm':
                             print(updated_layout)
                     
                         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
-                            mui.Paper("First item", key="first_item")
-                            mui.Paper("Second item (cannot drag)", key="second_item")
-                            mui.Paper("Third item (cannot resize)", key="third_item")
+                            mui.Paper("", key="main_item")
 
                 with info_tabs[2]:
                     filtered_product = selected_product.groupby('ma_san_pham')['processed_noi_dung_binh_luan'].apply(' '.join).reset_index()
