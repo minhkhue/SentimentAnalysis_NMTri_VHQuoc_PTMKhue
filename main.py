@@ -465,38 +465,39 @@ if selected == 'Thông tin về sản phẩm':
 
                     # Hiển thị các bình luận đã được lọc
                     filtered_reviews_count = len(filtered_reviews)
+                    num_comment = 5
                     def add_5_comment():
-                        if st.session_state["slider_danhgia"] < filtered_reviews_count:
-                            st.session_state["slider_danhgia"]+=5
-                        if st.session_state["slider_danhgia"] > filtered_reviews_count:
-                            st.session_state["slider_danhgia"]=filtered_reviews_count
+                        if num_comment < filtered_reviews_count:
+                            num_comment+=5
+                        if num_comment> filtered_reviews_count:
+                            num_comment=filtered_reviews_count
                         return
                     def add_comment(index):
                          with st.container(border=True):
                             st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[index]}, {filtered_reviews["ho_ten"].values[index]}, {filtered_reviews["so_sao"].values[index] * ":star:"}')
                             st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[index]}')
                             st.write('-' * 3)
-                    slide_val = st.slider("Số lượng bình luận", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="hidden")
-                    for i in range(slide_val):
+                    # slide_val = st.slider("Số lượng bình luận", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="hidden")
+                    for i in range(num_comment):
                         add_comment(i)
 
                     add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
 
-                    with elements("dashboard"):
+                    # with elements("dashboard"):
 
-                        layout = [
-                            # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-                            dashboard.Item("main_item", 0, 0, 5, 4, isDraggable=False, moved=False,isResizable=False)
-                        ]
+                    #     layout = [
+                    #         # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
+                    #         dashboard.Item("main_item", 0, 0, 5, 4, isDraggable=False, moved=False,isResizable=False)
+                    #     ]
                     
                     
-                        with dashboard.Grid(layout):
-                            mui.Paper("", key="main_item")
-                            for i in range(filtered_reviews_count):
-                                with st.container(border=True):
-                                    st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[i]}, {filtered_reviews["ho_ten"].values[i]}, {filtered_reviews["so_sao"].values[i] * ":star:"}')
-                                    st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[i]}')
-                                    st.write('-' * 3)
+                    #     with dashboard.Grid(layout):
+                    #         mui.Paper("", key="main_item")
+                    #         for i in range(filtered_reviews_count):
+                    #             with st.container(border=True):
+                    #                 st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[i]}, {filtered_reviews["ho_ten"].values[i]}, {filtered_reviews["so_sao"].values[i] * ":star:"}')
+                    #                 st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[i]}')
+                    #                 st.write('-' * 3)
                         
 
                 with info_tabs[2]:
