@@ -376,8 +376,10 @@ if selected == 'Thông tin về sản phẩm':
         st.session_state.selected_ma_san_pham = selected_product[1] # type: ignore
         if 'num_comment' not in st.session_state:
             st.session_state['num_comment'] = 5
+        def reset_num_comment():
+            st.session_state.num_comment=5
         if st.session_state.selected_ma_san_pham:
-            # st.session_state.num_comment=5
+            reset_num_comment()
             st.write(f'ma_san_pham: {st.session_state.selected_ma_san_pham}')
             # Hiển thị thông tin sản phẩm được chọn
             selected_product = data[data['ma_san_pham'] == st.session_state.selected_ma_san_pham].sort_values(by='ngay_binh_luan', ascending=False)
