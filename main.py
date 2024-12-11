@@ -486,15 +486,17 @@ if selected == 'Thông tin về sản phẩm':
 
                         layout = [
                             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-                            dashboard.Item("main_item", 0, 0, 4, 4, isDraggable=False, moved=False,isResizable=False)
+                            dashboard.Item("main_item", 0, 0, 5, 4, isDraggable=False, moved=False,isResizable=False)
                         ]
                     
-                        # Next, create a dashboard layout using the 'with' syntax. It takes the layout
-                        # as first parameter, plus additional properties you can find in the GitHub links below.
                     
                         with dashboard.Grid(layout):
                             mui.Paper("", key="main_item")
-                    
+                            for i in range(filtered_reviews_count):
+                                with st.container(border=True):
+                                    st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[index]}, {filtered_reviews["ho_ten"].values[index]}, {filtered_reviews["so_sao"].values[index] * ":star:"}')
+                                    st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[index]}')
+                                    st.write('-' * 3)
                         
 
                 with info_tabs[2]:
