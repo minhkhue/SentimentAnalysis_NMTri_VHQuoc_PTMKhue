@@ -494,8 +494,8 @@ if selected == 'Thông tin về sản phẩm':
                             mui.Paper("", key="main_item")
                             for i in range(filtered_reviews_count):
                                 with st.container(border=True):
-                                    st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[index]}, {filtered_reviews["ho_ten"].values[index]}, {filtered_reviews["so_sao"].values[index] * ":star:"}')
-                                    st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[index]}')
+                                    st.write(f'{filtered_reviews["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[i]}, {filtered_reviews["ho_ten"].values[i]}, {filtered_reviews["so_sao"].values[i] * ":star:"}')
+                                    st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[i]}')
                                     st.write('-' * 3)
                         
 
