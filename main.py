@@ -468,6 +468,7 @@ if selected == 'Thông tin về sản phẩm':
                             st.session_state.slider+=5
                         if st.session_state["slider_danhgia"] > filtered_reviews_count:
                             st.session_state.slider=filtered_reviews_count
+                        return
                     add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
                     slide_val = st.slider("Pick a number", 0, filtered_reviews_count,value = 5, key="slider_danhgia",label_visibility="hidden")
                     for i in range(len(filtered_reviews)):
