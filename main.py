@@ -479,7 +479,7 @@ if selected == 'Thông tin về sản phẩm':
                             st.write(f'{filtered_reviews["noi_dung_binh_luan"].values[index]}')
                             st.write('-' * 3)
                     # slide_val = st.slider("Số lượng bình luận", 0, filtered_reviews_count,step=5,value = 5, key="slider_danhgia",label_visibility="hidden")
-                    for i in range(num_comment):
+                    for i in range(st.session_state['num_comment']):
                         add_comment(i)
 
                     add_five_cmt_button = st.button("More comments", on_click=add_5_comment, key="add_five_cmt_button")
