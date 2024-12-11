@@ -478,8 +478,8 @@ if selected == 'Thông tin về sản phẩm':
                     filtered_reviews_count = len(filtered_reviews)
                     if st.session_state.selected_star != selected_star:
                         st.session_state.selected_star = selected_star
-                        if filtered_reviews < 5:
-                            st.session_state.num_comment = filtered_reviews
+                        if filtered_reviews_count < 5:
+                            st.session_state.num_comment = filtered_reviews_count
                         else:
                             st.session_state.num_comment=5
                         reset_num_comment()
