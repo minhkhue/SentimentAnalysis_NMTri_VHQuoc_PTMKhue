@@ -486,7 +486,7 @@ if selected == 'Thông tin về sản phẩm':
 
                         layout = [
                             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-                            dashboard.Item("main_item", 2, 0, 2, 2, isDraggable=False, moved=False,isResizable=False)
+                            dashboard.Item("main_item", 0, 0, 4, 4, isDraggable=False, moved=False,isResizable=False)
                         ]
                     
                         # Next, create a dashboard layout using the 'with' syntax. It takes the layout
@@ -495,16 +495,7 @@ if selected == 'Thông tin về sản phẩm':
                         with dashboard.Grid(layout):
                             mui.Paper("", key="main_item")
                     
-                        # # If you want to retrieve updated layout values as the user move or resize dashboard items,
-                        # # you can pass a callback to the onLayoutChange event parameter.
-                    
-                        # def handle_layout_change(updated_layout):
-                        #     # You can save the layout in a file, or do anything you want with it.
-                        #     # You can pass it back to dashboard.Grid() if you want to restore a saved layout.
-                        #     print(updated_layout)
-                    
-                        # with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
-                        #     mui.Paper("", key="main_item")
+                        
 
                 with info_tabs[2]:
                     filtered_product = selected_product.groupby('ma_san_pham')['processed_noi_dung_binh_luan'].apply(' '.join).reset_index()
