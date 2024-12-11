@@ -467,10 +467,10 @@ if selected == 'Thông tin về sản phẩm':
                     filtered_reviews_count = len(filtered_reviews)
                     num_comment = 5
                     def add_5_comment():
-                        if num_comment < filtered_reviews_count:
-                            num_comment+=5
-                        if num_comment> filtered_reviews_count:
-                            num_comment=filtered_reviews_count
+                        if st.session_state.num_comment < filtered_reviews_count:
+                            st.session_state.num_comment+=5
+                        if st.session_state.num_comment> filtered_reviews_count:
+                            st.session_state.num_comment=filtered_reviews_count
                         return
                     def add_comment(index):
                          with st.container(border=True):
