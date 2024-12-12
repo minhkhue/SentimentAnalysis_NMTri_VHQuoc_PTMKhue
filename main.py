@@ -440,13 +440,13 @@ if selected == 'Thông tin về sản phẩm':
                     if st.session_state.show_full_description:
                         # Nếu đang hiển thị toàn bộ nội dung
                         st.write(product_description)
-                        if st.button("Thu gọn", key="collapse_button",onclick=update_button_clicked):
+                        if st.button("Thu gọn", key="collapse_button",on_click=update_button_clicked):
                             st.session_state.show_full_description = False
                             st.session_state.button_clicked = True
                     else:
                         # Nếu đang hiển thị một phần nội dung
                         st.write(product_description[:350] + '...')
-                        if st.button("Xem tiếp", key="expand_button",onclick=update_button_clicked):
+                        if st.button("Xem tiếp", key="expand_button",on_click=update_button_clicked):
                             st.session_state.show_full_description = True
                             st.session_state.button_clicked = True
 
