@@ -448,7 +448,7 @@ if selected == 'Thông tin về sản phẩm':
                             st.session_state.show_full_description = True
                             st.session_state.button_clicked = True
 
-                Đảm bảo cập nhật trạng thái ngay lập tức
+                # Đảm bảo cập nhật trạng thái ngay lập tức
                 if st.session_state.button_clicked:
                     st.session_state.button_clicked = False
                     #st._rerun()
