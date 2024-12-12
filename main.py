@@ -433,20 +433,19 @@ if selected == 'Thông tin về sản phẩm':
                 # Quản lý trạng thái nút bấm để re-run toàn bộ code
                 if "button_clicked" not in st.session_state:
                     st.session_state.button_clicked = False  # Trạng thái nút bấm ban đầu
-                def update_button_clicked():
-                    st.session_state.button_clicked = False
+                
                 product_description = product_description.replace('1.', '\n').replace('THÔNG TIN SẢN PHẨM','\n').replace('Làm sao để phân biệt hàng có trộn hay không ?\nHàng trộn sẽ không thể xuất hoá đơn đỏ (VAT) 100% được do có hàng không nguồn gốc trong đó.\nTại Hasaki, 100% hàng bán ra sẽ được xuất hoá đơn đỏ cho dù khách hàng có lấy hay không. Nếu có nhu cầu lấy hoá đơn đỏ, quý khách vui lòng lấy trước 22h cùng ngày. Vì sau 22h, hệ thống Hasaki sẽ tự động xuất hết hoá đơn cho những hàng hoá mà khách hàng không đăng kí lấy hoá đơn.\nDo xuất được hoá đơn đỏ 100% nên đảm bảo 100% hàng tại Hasaki là hàng chính hãng có nguồn gốc rõ ràng.','\n')
                 with info_tabs[0]:
                     if st.session_state.show_full_description:
                         # Nếu đang hiển thị toàn bộ nội dung
                         st.write(product_description)
-                        if st.button("Thu gọn", key="collapse_button",on_click=update_button_clicked):
+                        if st.button("Thu gọn", key="collapse_button"):
                             st.session_state.show_full_description = False
                             st.session_state.button_clicked = True
                     else:
                         # Nếu đang hiển thị một phần nội dung
                         st.write(product_description[:350] + '...')
-                        if st.button("Xem tiếp", key="expand_button",on_click=update_button_clicked):
+                        if st.button("Xem tiếp", key="expand_button"):
                             st.session_state.show_full_description = True
                             st.session_state.button_clicked = True
 
