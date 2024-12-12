@@ -449,9 +449,9 @@ if selected == 'Thông tin về sản phẩm':
                             st.session_state.button_clicked = True
 
                 # Đảm bảo cập nhật trạng thái ngay lập tức
-                if st.session_state.button_clicked:
-                    st.session_state.button_clicked = False
-                    st._rerun()
+                # if st.session_state.button_clicked:
+                #     st.session_state.button_clicked = False
+                #     st._rerun()
                 with info_tabs[1]:
                     # for i in range(len(selected_product["noi_dung_binh_luan"])):
                     #     st.write(f'{selected_product["ngay_binh_luan"].dt.strftime("%d-%m-%Y").values[i]}, {selected_product["ho_ten"].values[i]}, {selected_product["so_sao"].values[i]*":star:"}')
